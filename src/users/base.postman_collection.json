@@ -1,0 +1,19 @@
+{
+  "info": {
+    "_postman_id": "7fc2d152-ba56-47fb-b3b3-8d584a539e2a",
+    "name": "base",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37622990",
+    "_collection_link": "https://go.postman.co/collection/37622990-7fc2d152-ba56-47fb-b3b3-8d584a539e2a?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "chapter11test",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}
