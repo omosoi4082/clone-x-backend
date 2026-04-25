@@ -32,7 +32,7 @@ export class UsersService {
     }
 
     const user = await this.usersRepository.findOne({
-      where: { eamil: loginDto.email },
+      where: { email: loginDto.email },
     });
 
     if (!user) {
@@ -41,10 +41,10 @@ export class UsersService {
     if (user && !(await bcrypt.compare(loginDto.password, user.password))) {
       throw new HttpException('invalid credentials', HttpStatus.UNAUTHORIZED);
     }
-    const payload = { id: user.id, email: user.eamil };
+    const payload = { id: user.id, email: user.email };
     return {
       id: user.id,
-      email: user.eamil,
+      email: user.email,
       name: user.name,
       access_token: this.jwtService.sign(payload),
     };
@@ -69,12 +69,14 @@ export class UsersService {
         HttpStatus.BAD_REQUEST,
       );
     }
-    const hashedPassward = await bcrypt.hash(user.password);
+    const hashedPassward = await bcrypt.hash(user.password, 10);
+
     const newUser = {
       name: user.name,
       email: user.email,
       password: hashedPassward,
     };
+    console.log(newUser);
     return this.usersRepository.save(newUser);
   }
 }
