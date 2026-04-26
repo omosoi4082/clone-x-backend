@@ -15,7 +15,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       password: '1234',
       database: 'twitter',
       autoLoadEntities: true,
-      synchronize: false,
+      synchronize: true,
     }),
     UsersModule,
     FeedsModule,
